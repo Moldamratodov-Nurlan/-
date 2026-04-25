@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class TextAnalyzer {
+
+    public static void main(String[] args) {
+
+        String text = "Java is great and Java is powerful";
+
+        // Мәтінді кіші әріпке айналдыру
+        text = text.toLowerCase();
+
+        // Сөздерге бөлу
+        String[] words = text.split("\\s+");
+
+        // HashMap (сөз және оның жиілігі)
+        HashMap<String, Integer> wordCount = new HashMap<>();
+
+        // Жиілікті есептеу
+        for (String word : words) {
+            if (wordCount.containsKey(word)) {
+                wordCount.put(word, wordCount.get(word) + 1);
+            } else {
+                wordCount.put(word, 1);
+            }
+        }
+
+        // Нәтижені шығару
+        System.out.println("Сөздер саны: " + words.length);
+        System.out.println("Сөздердің жиілігі:");
+
+        for (String word : wordCount.keySet()) {
+            System.out.println(word + " : " + wordCount.get(word));
+        }
+    }
+}
